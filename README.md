@@ -1,2 +1,2 @@
-# CS490
+# CS490alpha
 Website
