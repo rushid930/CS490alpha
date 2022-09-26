@@ -1,5 +1,6 @@
 <?php
    //database connection
+   //test commit
    $server = 'sql1.njit.edu';
    $dbuser = '******';
    $pass = '*************';
