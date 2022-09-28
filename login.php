@@ -1,3 +1,7 @@
+<?php
+  include_once 'includes/serverConnect.php';
+?>
+
 <html>
 <body>
 
