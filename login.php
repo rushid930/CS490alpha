@@ -1,5 +1,5 @@
 <?php
-  include_once 'includes/dblog.php';
+  include_once 'includes/serverConnect.php';
 ?>
 
 <html>
