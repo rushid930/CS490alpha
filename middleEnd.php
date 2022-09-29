@@ -27,7 +27,7 @@ function debug_to_console($data) {
 		debug_to_console($_SESSION['auth']);
 		debug_to_console($_SESSION['user-type']);
 
-		header('Location: https://web.njit.edu/~rd448/authCode.php');
+		header('Location: https://web.njit.edu/~ss4366/authCode.php');
 	}
 	else if(isset($_SESSION['auth'])){
 		debug_to_console($_SESSION['user-type']);

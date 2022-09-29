@@ -39,7 +39,7 @@ if($rows > 0){
     debug_to_console($_SESSION['user-type']);
 
     //send to middleend
-    header('Location: https://web.njit.edu/~rd448/middleEnd.php');
+    header('Location: https://web.njit.edu/~ac235/middleEnd.php');
 }
 else{
     $_SESSION['message'] = "Invalid Credentials";
