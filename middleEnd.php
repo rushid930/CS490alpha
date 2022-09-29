@@ -1,6 +1,6 @@
 <?php
 
-$backUrl = 'https://web.njit.edu/~rd448/backEnd.php';
+$backUrl = 'https://web.njit.edu/~ss4366/backEnd.php';
 $frontUrl = 'https://web.njit.edu/~rd448/frontEnd.php';
 $username = $_POST['username'];
 $password = $_POST['password'];

@@ -10,9 +10,6 @@
    	die("connection error".mysqli_connect_error($database));
     }
 
-//$json = file_get_contents('php://input');
-//$data = json_decode($json);
-
 $username = $_POST['username'];
 $password = $_POST['password'];
 
