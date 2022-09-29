@@ -1,5 +1,5 @@
 <?php
-	$URL = 'https://web.njit.edu/~rd448/middleEnd.php';
+	$URL = 'https://web.njit.edu/~ac235/middleEnd.php';
 
 	$req = login($_POST['username'], $_POST['password'], $URL);
 	echo $req;
