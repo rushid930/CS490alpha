@@ -6,7 +6,7 @@
 <body>
 	<div id="LoginForm">
 		<h2>Login Form</h2>
-		<form action="https://web.njit.edu/~rd448/middleEnd.php" method="POST">
+		<form action="https://web.njit.edu/~ac235/middleEnd.php" method="POST">
 		<!-- <form id="Login"> -->
       		<label for="username">Username:</label>
 			<input type="text" id="username" name="username"><br/>
