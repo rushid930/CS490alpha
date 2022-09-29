@@ -1,52 +1,52 @@
 <?php
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
 
-$backUrl = 'https://web.njit.edu/~ss4366/backEnd.php';
-$frontUrl = 'https://web.njit.edu/~rd448/frontEnd.php';
-$username = $_POST['username'];
-$password = $_POST['password'];
-
-$login = array('username'=>$username, 'password'=>$password);
-
-
-$chFront = curl_init();
-
-curl_setopt($chFront, CURLOPT_URL, '$frontUrl');
-curl_setopt($chFront, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($chFront, CURLOPT_POST, 1);
-curl_setopt($chFront, CURLOPT_POSTFIELDS, $login);
-$responseF = curl_exec($chFront);
-curl_close($chFront);
-
-
-$chBack = curl_init();
-
-curl_setopt($chBack, CURLOPT_URL, '$backUrl');
-curl_setopt($chBack, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($chBack, CURLOPT_POST, 1);
-curl_setopt($chBack, CURLOPT_POSTFIELDS, $login);
-$responseB = curl_exec($chBack);
-curl_close($chBack);
-
-
-/*if(isset($username) && isset($password)){
-    $message = 'Authenticated';
-} 
-else{
-    $message = 'Denied';
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
-*/
+?>
+<?php
+	session_start();
 
-if(strpos($responseF, "Invalid Username")==false){
-    $message = 'Authenticated';
-}
-else{
-    $message = 'Denied';
-}
+	debug_to_console($_POST['loginBTN']);
+	debug_to_console($_SESSION['auth']);
 
-$decoded_json = json_decode($responseB, true);
-$decoded_json['respNJIT'] = $message;
-//json_decode($message);
-$finalJSON = json_encode($decoded_json, JSON_PRETTY_PRINT);
-echo $finalJSON;
+	if(isset($_POST['loginBTN'])){
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+
+		$_SESSION['auth-user'] = [
+            'username' => $username,
+            'password' => $password
+        ];
+		
+		debug_to_console($_SESSION['auth-user']);
+		$_SESSION['auth'] = false;
+		debug_to_console($_SESSION['auth']);
+		debug_to_console($_SESSION['user-type']);
+
+		header('Location: https://web.njit.edu/~ss4366/authCode.php');
+	}
+	else if(isset($_SESSION['auth'])){
+		debug_to_console($_SESSION['user-type']);
+		$user_type = $_SESSION['user-type'];
+		if($user_type == 'Teacher'){                    
+			$_SESSION['message'] = "Successful Login";
+			header('Location: https://web.njit.edu/~rd448/teacherLanding.php');
+		}
+		else if($user_type == 'Student'){
+			$_SESSION['message'] = "Successful Login";
+			header('Location: https://web.njit.edu/~rd448/studentLanding.php');
+		}
+		else{
+			$_SESSION['message'] = "Invalid Credentials";
+			header('Location: https://web.njit.edu/~rd448/login.php');
+		}
+	}
+	else{
+		header('Location: https://web.njit.edu/~rd448/login.php');
+	}
 
 ?>
