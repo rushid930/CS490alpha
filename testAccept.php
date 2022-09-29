@@ -45,7 +45,5 @@
             );
             echo "<h2>No User Found</h2>";
         }
-        
-        echo "test";
     }
 ?>
