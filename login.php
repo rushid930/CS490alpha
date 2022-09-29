@@ -6,12 +6,13 @@
 <body>
 	<div id="LoginForm">
 		<h2>Login Form</h2>
-		<form action="testAccept.php" method="post">
+		<form action="https://web.njit.edu/~rd448/middleEnd.php" method="POST">
+		<!-- <form id="Login"> -->
       		<label for="username">Username:</label>
 			<input type="text" id="username" name="username"><br/>
 			<label for="password">Password: </label>
       		<input type="text" id="password" name="password"><br/>
-			<input type="submit" value="LOGIN"/>
+			<input type="submit" name="loginBTN" value="LOGIN"/>
 		</form>
 	</div>
 </body>
