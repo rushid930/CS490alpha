@@ -1,6 +1,6 @@
 <?php
 
-$backUrl = 'https://web.njit.edu/~rd448/backEnd.php';
+$backUrl = 'https://web.njit.edu/~rd448/testAccept.php';
 $frontUrl = 'https://web.njit.edu/~rd448/frontEnd.php';
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -27,14 +27,6 @@ curl_setopt($chBack, CURLOPT_POSTFIELDS, $login);
 $responseB = curl_exec($chBack);
 curl_close($chBack);
 
-
-/*if(isset($username) && isset($password)){
-    $response = 'Authenticated';
-} 
-else{
-    $response = 'Denied';
-}
-*/
 
 if(strpos($responseF, "Invalid Username")==false){
     $response = 'Authenticated';

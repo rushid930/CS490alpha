@@ -1,27 +1,34 @@
 <?php
-   //database connection
-   //test commit
+//database connection
+//test commit
 
-   error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);  
-   ini_set('display_errors' , 1);
+error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);  
+ini_set('display_errors' , 1);
 
-   $server = 'sql1.njit.edu';
-   $dbuser = 'ss4366';
-   $pass = 'Ss!98119811';
-   $dbname = 'ss4366';
-   $database = mysqli_connect($server, $dbuser, $pass, $dbname);
-   if(mysqli_connect_errno($database)){
-   	die("connection error".mysqli_connect_error($database));
-    }
+$server = 'sql1.njit.edu';
+$dbuser = 'ss4366';
+$pass = 'Ss!98119811';
+$dbname = 'ss4366';
+$database = mysqli_connect($server, $dbuser, $pass, $dbname);
+if(mysqli_connect_errno($database)){
+    die("connection error".mysqli_connect_error($database));
+}
 
 $username = 'sumit';
 $password = '123456789';
 
 $query = "SELECT * FROM `information` WHERE username='$username' and password='$password'";
-//$query="SELECT * FROM information WHERE username='$username'";
-//($result=mysqli_query ($database, $query)) or die( mysqli_error( $database ));
 $result = mysqli_query($database, $query);
 $rows = mysqli_num_rows($result);
+
+/*if(isset($_POST['username']) && isset($_POST['password'])){
+    $username = $_POST['username'];    
+    $password = $_POST['password'];
+}
+else{
+    echo 'some error ...';
+}
+*/
 
 if ($rows == 0) 
   $resp = array("resp"=>"noExist");
@@ -47,14 +54,12 @@ else if ($rows == 1) {
     echo $json_string0;
 }
 
-/*$r=mysqli_fetch_array($result,MYSQLI_ASSOC);
-$hash=$r['hash'];
-
-if (password_verify($password, $hash))
-	{$resp =array("resp"=>"backYes");}
-else
+if($username == $rows['username'] && $password == $rows['password']){
+    $resp =array("resp"=>"backYes");
+}
+else{
 	$resp = array("resp"=>"backNo");
-*/
+}
 
 $resp_string = json_encode($resp);                                                                                    
 
