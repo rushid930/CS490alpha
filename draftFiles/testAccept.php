@@ -29,10 +29,10 @@ function debug_to_console($data) {
             if($column['password'] == $password){
                 $resp =array("resp"=>"backYes");
                 if($column['Type'] == 'Teacher'){                    
-                    echo "<meta http-equiv = 'refresh' content = '0; url = https://web.njit.edu/~rd448/teacherLanding.html' />";
+                    echo "<meta http-equiv = 'refresh' content = '0; url = https://web.njit.edu/~rd448/teacherLanding.php' />";
                 }
                 else if($column['Type'] == 'Student'){
-                    echo "<meta http-equiv = 'refresh' content = '0; url = https://web.njit.edu/~rd448/studentLanding.html' />";
+                    echo "<meta http-equiv = 'refresh' content = '0; url = https://web.njit.edu/~rd448/studentLanding.php' />";
                 }
                 else{
                     $resp = array("resp"=>"backNo");
