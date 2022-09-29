@@ -1,12 +1,3 @@
-<!--
-<button onclick="submitFunction()">Login</button>
-
-<script>
-    function submitFunction() {
-      location.replace("https://web.njit.edu/~rd448/acceptStudent.html")
-    }
-</script>
--->
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +14,5 @@
 			<input type="submit" value="LOGIN"/>
 		</form>
 	</div>
-
 </body>
 </html>

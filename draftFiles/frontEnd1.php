@@ -1,6 +1,8 @@
 <?php
-	$URL = 'https://web.njit.edu/~rd448/middleEnd.php';
+	$URL = 'https://web.njit.edu/~rd448/middleEnd1.php';
 
+	$username = $_POST['username'];
+    $password = $_POST['password'];
 	$req = login($_POST['username'], $_POST['password'], $URL);
 	echo $req;
 
