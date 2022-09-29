@@ -8,7 +8,7 @@ $password = $_POST['password'];
 
 $login = array('username'=>$username, 'password'=>$password);
 
-
+//Gather information from front-end URL AKA Rushi's Code
 $chFront = curl_init();
 
 curl_setopt($chFront, CURLOPT_URL, '$frontUrl');
@@ -18,17 +18,17 @@ curl_setopt($chFront, CURLOPT_POSTFIELDS, $login);
 $responseF = curl_exec($chFront);
 curl_close($chFront);
 
-
+//Gathers infromation from back-end URL AKA Sumit's code
 $chBack = curl_init();
 
 curl_setopt($chBack, CURLOPT_URL, '$backUrl');
 curl_setopt($chBack, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($chBack, CURLOPT_POST, 1);
 curl_setopt($chBack, CURLOPT_POSTFIELDS, $login);
-$responeB = curl_exec($chBack);
+$responseB = curl_exec($chBack);
 curl_close($chBack);
 
-
+// Checks if user inputted any data into username and password
 if(isset($username && $password)){
     $message = 'Authenticated';
 } 
