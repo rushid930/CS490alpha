@@ -1,6 +1,10 @@
 <?php
    //database connection
    //test commit
+
+   error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);  
+   ini_set('display_errors' , 1);
+
    $server = 'sql1.njit.edu';
    $dbuser = 'ss4366';
    $pass = 'Ss!98119811';
@@ -10,11 +14,12 @@
    	die("connection error".mysqli_connect_error($database));
     }
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+$username = 'sumit';
+$password = '123456789';
 
-$query = "SELECT * FROM `information` WHERE username='$username' and password = '$password'";
-
+$query = "SELECT * FROM `information` WHERE username='$username' and password='$password'";
+//$query="SELECT * FROM information WHERE username='$username'";
+//($result=mysqli_query ($database, $query)) or die( mysqli_error( $database ));
 $result = mysqli_query($database, $query);
 $rows = mysqli_num_rows($result);
 
@@ -42,17 +47,19 @@ else if ($rows == 1) {
     echo $json_string0;
 }
 
-$r=mysqli_fetch_array($result,MYSQLI_ASSOC);
+/*$r=mysqli_fetch_array($result,MYSQLI_ASSOC);
 $hash=$r['hash'];
 
 if (password_verify($password, $hash))
 	{$resp =array("resp"=>"backYes");}
 else
 	$resp = array("resp"=>"backNo");
+*/
 
 $resp_string = json_encode($resp);                                                                                    
 
 echo $resp_string;
+
 
 mysqli_free_result($result);
 mysqli_close($database);

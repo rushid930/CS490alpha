@@ -1,6 +1,6 @@
 <?php
 
-$backUrl = 'https://web.njit.edu/~ss4366/backEnd.php';
+$backUrl = 'https://web.njit.edu/~rd448/backEnd.php';
 $frontUrl = 'https://web.njit.edu/~rd448/frontEnd.php';
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -29,23 +29,23 @@ curl_close($chBack);
 
 
 /*if(isset($username) && isset($password)){
-    $message = 'Authenticated';
+    $response = 'Authenticated';
 } 
 else{
-    $message = 'Denied';
+    $response = 'Denied';
 }
 */
 
 if(strpos($responseF, "Invalid Username")==false){
-    $message = 'Authenticated';
+    $response = 'Authenticated';
 }
 else{
-    $message = 'Denied';
+    $response = 'Denied';
 }
 
 $decoded_json = json_decode($responseB, true);
-$decoded_json['respNJIT'] = $message;
-//json_decode($message);
+$decoded_json['respNJIT'] = $response;
+//json_decode($response);
 $finalJSON = json_encode($decoded_json, JSON_PRETTY_PRINT);
 echo $finalJSON;
 
