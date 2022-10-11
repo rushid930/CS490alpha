@@ -4,7 +4,7 @@ function debug_to_console($data) {
     if (is_array($output))
         $output = implode(',', $output);
 
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+    //echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
 ?>
 <?php
@@ -39,11 +39,11 @@ if($rows > 0){
     debug_to_console($_SESSION['user-type']);
 
     //send to middleend
-    header('Location: https://web.njit.edu/~ac235/middleEnd.php');
+    header('Location: https://afsaccess4.njit.edu/~rd448/middleEnd.php');
 }
 else{
     $_SESSION['message'] = "Invalid Credentials";
-    header('Location: https://web.njit.edu/~rd448/login.php');
+    header('Location: https://afsaccess4.njit.edu/~rd448/login.php');
 }
 
 

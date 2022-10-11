@@ -21,7 +21,7 @@ app.post('/login', (req, res) => {
   res.send(`Username: ${username} Password: ${password}`);
 });
 
-const port = 'https://web.njit.edu/~rd448' // Port we will listen on
+const port = 'https://afsaccess4.njit.edu/~rd448' // Port we will listen on
 
 // Function to listen on the port
 app.listen(port, () => console.log(`This app is listening on port ${port}`));
