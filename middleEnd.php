@@ -65,7 +65,7 @@ else{
 		debug_to_console($_SESSION['user-type']);
 
 		header('Location: https://web.njit.edu/~ss4366/authCode.php');
-	}
+o	}
 	else if(isset($_SESSION['auth'])){
 		debug_to_console($_SESSION['user-type']);
 		$user_type = $_SESSION['user-type'];
