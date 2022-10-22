@@ -24,7 +24,7 @@ if ($request == 'login'){
 	$s="SELECT * FROM `information` WHERE username='$username' AND password='$password'";
 	($t=mysqli_query($database,$s)) or die( mysqli_error( $database )); #Executes query
 	$num=mysqli_num_rows($t);//returns the number of rows in $t.
-	if ($num ==0){
+	if ($num == 0){
 		$resp = 'backNoexist';
     }
 	else{
@@ -38,7 +38,6 @@ if ($request == 'login'){
 	}
 	//Returns the JSON representation of $resp
 	echo json_encode($resp);
-
 }
 
 mysqli_close($database);

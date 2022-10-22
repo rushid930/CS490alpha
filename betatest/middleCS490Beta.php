@@ -11,8 +11,7 @@ $data = $_POST['data'];
 //To call $data['RequestType'] to get the request type
 
 if ($requestID == 'login'){
-        $post = http_build_query(array('RequestType' => $requestID, 'data' =>
-        $data));
+        $post = http_build_query(array('RequestType' => $requestID, 'data' => $data));
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $backurl);
@@ -22,7 +21,6 @@ if ($requestID == 'login'){
         $result = curl_exec($ch);
         echo $result; //Echos login return from back to front
         curl_close($ch);
-
 }
 
 function str_flatten($delim, &$arr){

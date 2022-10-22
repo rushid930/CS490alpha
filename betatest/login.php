@@ -5,7 +5,7 @@
 </head>
 <body>
 	<div id="LoginBox">
-		<h2>Login2 Form</h2>
+		<h2>Login Form</h2>
 		<div id="LoginForm">
 			<form id="Login">
 				<label for="username">Username:</label>
