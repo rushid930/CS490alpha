@@ -1,4 +1,13 @@
 <?php
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+
+    //echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
+?>
+<?php
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);  //Detectes run-time errors
 ini_set('display_errors' , 1);
@@ -38,6 +47,46 @@ if ($request == 'login'){
 	}
 	//Returns the JSON representation of $resp
 	echo json_encode($resp);
+}
+
+if ($request == 'CreateQuestion'){
+    $topic = $data['topic'];
+	$tests = $data['testCases'];
+    $difficulty = $data['difficulty'];
+    $quest = $data['questionText'];
+    
+	//Creating the question
+	$query = "SELECT * FROM questionTable WHERE question='$quest'";
+	$cursor = $db->query($query);
+	if ($cursor->num_rows == 0) {
+		$query = "INSERT INTO questionTable (questTopic, questTest, questDifficulty, questText) VALUES ('$topic','$tests','$difficulty','$quest');";
+		$db->query($query) or die('There was an error saving your question');
+		$ans = 'Question successfully saved with id '.$db->insert_id;
+		//echo json_encode($ans);
+	}
+	else
+		$ans = 'Question already saved';
+	//Returns the JSON representation of $ans
+	echo json_encode($ans);
+}
+
+if ($request == 'GetQuestions'){//list questions 
+	$query="SELECT * from questionTable";
+	$cursor = $db->query($query);
+	while ($row = $cursor->fetch_array()) {
+		$questionID = $row[0];
+		$questionTopic = $row[1];
+        $questionTest = $row[2];
+		$questionDifficulty = $row[3];
+		$question=$row[4];
+		$ans[] = array(
+			"questID" => $questionID,
+			"topic" => $questionTopic,
+			"testCases" => $questionTest,
+			"difficulty" => $questionDifficulty,
+			"questionText" => $question);
+	}
+	echo json_encode($ans);
 }
 
 mysqli_close($database);

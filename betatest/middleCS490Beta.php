@@ -1,4 +1,13 @@
 <?php
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+
+    //echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
+?>
+<?php
 
 //error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 //ini_set('display_errors', 1);
@@ -9,6 +18,9 @@ $requestID = $_POST['RequestType'];
 $data = $_POST['data'];
 //Due to no connection of post being sent to back, the back would need the data
 //To call $data['RequestType'] to get the request type
+//debug_to_console($requestID);
+//debug_to_console($data);
+//debug_to_console($backurl);
 
 if ($requestID == 'login'){
         $post = http_build_query(array('RequestType' => $requestID, 'data' => $data));
@@ -21,6 +33,40 @@ if ($requestID == 'login'){
         $result = curl_exec($ch);
         echo $result; //Echos login return from back to front
         curl_close($ch);
+}
+
+elseif ($requestID == 'CreateQuestion'){
+//Creates the question then sends data to back to store in database
+        $datas = http_build_query(array('RequestType' => $requestID, 'data' => $data));
+        
+        $ch = curl_init();
+        
+        curl_setopt($ch, CURLOPT_URL, $backurl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $datas);
+        
+        $result = curl_exec($ch);
+        //debug_to_console($result);
+
+        echo $result;
+        curl_close($ch);
+}
+        
+elseif ($requestID == 'GetQuestions'){//Send the request data forward for the
+//back to retreive the question data from the database to then send to front
+//Data will be holding the request type for back to determine which to send
+        $datas = http_build_query(array('RequestType' => $requestID, 'data' => $data)); //Data is empty sending
+        
+        $ch = curl_init();
+        
+        curl_setopt($ch, CURLOPT_URL, $backurl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $datas);
+        
+        $result = curl_exec($ch);
+        echo $result;
+        curl_close($ch);
+        
 }
 
 function str_flatten($delim, &$arr){
