@@ -1,4 +1,13 @@
 <?php
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+
+    //echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
+?>
+<?php
 
 //error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 //ini_set('display_errors', 1);
@@ -9,6 +18,9 @@ $requestID = $_POST['RequestType'];
 $data = $_POST['data'];
 //Due to no connection of post being sent to back, the back would need the data
 //To call $data['RequestType'] to get the request type
+//debug_to_console($requestID);
+//debug_to_console($data);
+//debug_to_console($backurl);
 
 if ($requestID == 'login'){
         $post = http_build_query(array('RequestType' => $requestID, 'data' => $data));
@@ -34,6 +46,8 @@ elseif ($requestID == 'CreateQuestion'){
         curl_setopt($ch, CURLOPT_POSTFIELDS, $datas);
         
         $result = curl_exec($ch);
+        //debug_to_console($result);
+
         echo $result;
         curl_close($ch);
 }

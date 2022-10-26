@@ -1,4 +1,13 @@
 <?php
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+
+    //echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
+?>
+<?php
 	define('MAGICNUMBER', true);
 	include 'restrict.php';
 
@@ -12,9 +21,9 @@
 		case 'CreateQuestion':
 			$topic = $_POST['topic'];
 			$difficulty = $_POST['difficulty'];
-			$questiontext = $_POST['questiontext'];
-			$testcases = $_POST['testcases'];
-			$post_params = http_build_query(array('RequestType' => $reqtype, 'data' => array('topic' => $topic, 'difficulty' => $difficulty, 'questiontext' => $questiontext, 'testcases' => $testcases)));
+			$questiontext = $_POST['questionText'];
+			$testcases = $_POST['testCases'];
+			$post_params = http_build_query(array('RequestType' => $reqtype, 'data' => array('topic' => $topic, 'difficulty' => $difficulty, 'questionText' => $questiontext, 'testCases' => $testcases)));
 			break;
 
 		case 'createExam':
@@ -77,17 +86,19 @@
 			break;
 	}
 
+	//debug_to_console($post_params);
+	//debug_to_console($URL);
 	$resp = handoff($post_params, $URL);
+	//debug_to_console($resp);
 	echo $resp;
 
 	function handoff($post_params, $URL){
 		$ch = curl_init();
 		$options = array(CURLOPT_URL => $URL,
-			         CURLOPT_HTTPHEADER =>
-				 array('Content-type:application/x-www-form-urlencoded'),
-				 CURLOPT_RETURNTRANSFER => TRUE,
-				 CURLOPT_POST => TRUE,
-				 CURLOPT_POSTFIELDS => $post_params);
+			    CURLOPT_HTTPHEADER => array('Content-type:application/x-www-form-urlencoded'),
+				CURLOPT_RETURNTRANSFER => TRUE,
+				CURLOPT_POST => TRUE,
+				CURLOPT_POSTFIELDS => $post_params);
 		curl_setopt_array($ch, $options);
 		$result = curl_exec($ch);
 		curl_close($ch);

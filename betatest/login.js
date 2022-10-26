@@ -6,7 +6,7 @@ function login(e){
 	
 	const SERVER = 'https://afsaccess4.njit.edu/~rd448/frontEndCS490.php';
 	const STUDENT_PAGE = 'https://afsaccess4.njit.edu/~rd448/student.php';
-	const TEACHER_PAGE = 'https://afsaccess4.njit.edu/~rd448/teacherNav.php';
+	const TEACHER_PAGE = 'https://afsaccess4.njit.edu/~rd448/teacherNav.php'; //test test test
 
 	let username = document.getElementById("username").value;
 	let password = document.getElementById("password").value;

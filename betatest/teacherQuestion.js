@@ -4,10 +4,10 @@ function ajaxSubmit(e){
 	
 	e.preventDefault();
 
-	const SERVER = 'ajaxHandler.php';
+	const SERVER = 'https://afsaccess4.njit.edu/~rd448/ajaxHandler.php';
 
-	let difficulty = document.getElementById("difficulty").value;
 	let topic = document.getElementById("topic").value;
+	let difficulty = document.getElementById("difficulty").value;
 	let fname = document.getElementById("fname").value;
 	let fargs = document.getElementById("fargs").value;
 	let fbody = document.getElementById("fbody").value;
@@ -34,20 +34,21 @@ function ajaxSubmit(e){
 		tcs += tcf;
 	}
  
-        let post_params = "RequestType=CreateQuestion" + "&topic=" + topic + "&difficulty=" + difficulty + "&questiontext=" + vquestion + "&testcases=" + tcs;
+    let post_params = "RequestType=CreateQuestion" + "&topic=" + topic + "&difficulty=" + difficulty + "&questionText=" + vquestion + "&testCases=" + tcs;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", SERVER, true);
 	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xhr.onload = function(){
-        	if (xhr.status == 200){
-            		let elem = document.getElementById("response");
+		if (xhr.status == 200){
+			let elem = document.getElementById("response");
 
 			if (this.responseText == "There was an error saving your question"){
 				elem.innerHTML = "Error saving question...";
 				return;
 			}
 
+			console.log(this.responseText);
 			resp = JSON.parse(this.responseText);
 			
 			if (resp.startsWith("Question successfully saved with id"))
@@ -55,7 +56,7 @@ function ajaxSubmit(e){
 			else
 				elem.innerHTML = resp;
 		}
-        }
+    }
 
 	xhr.send(post_params);
 }
