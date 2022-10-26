@@ -4,12 +4,12 @@ function debug_to_console($data) {
     if (is_array($output))
         $output = implode(',', $output);
 
-    //echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
 ?>
 <?php
-	define('MAGICNUMBER', true);
-	include 'restrict.php';
+	//define('MAGICNUMBER', true);
+	//include 'restrict.php';
 
     $URL = 'https://web.njit.edu/~rd448/middleCS490Beta.php'; //andrew
 
@@ -86,10 +86,10 @@ function debug_to_console($data) {
 			break;
 	}
 
-	//debug_to_console($post_params);
-	//debug_to_console($URL);
+	debug_to_console($post_params);
+	debug_to_console($URL);
 	$resp = handoff($post_params, $URL);
-	//debug_to_console($resp);
+	debug_to_console($resp);
 	echo $resp;
 
 	function handoff($post_params, $URL){
