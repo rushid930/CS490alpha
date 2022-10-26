@@ -1,11 +1,11 @@
 <?php
 	$LOGIN_PATH     = 'https://afsaccess4.njit.edu/~rd448/login.php';
-	$STUDENT_PATH   = 'https://afsaccess4.njit.edu/~rd448/student.php';
+	$STUDENT_PATH   = 'https://afsaccess4.njit.edu/~rd448/studentNav.php';
 	$TEACHER_PATH   = 'https://afsaccess4.njit.edu/~rd448/teacherNav.php';
 
-	$STUDENT_PAGES = array('student.php');
+	$STUDENT_PAGES = array('studentNav.php', 'studentExam.php', 'studentTake.php', 'studentReview.php', 'studentView.php', 'studentLanding.php');
 
-	$TEACHER_PAGES = array('teacherNav.php');
+	$TEACHER_PAGES = array('teacherNav.php', 'teacherExam.php', 'teacherCompleted.php', 'teacherGrade.php', 'teacherQuestion.php', 'teacherLanding.php');
 
 	if (!defined('MAGICNUMBER')){
 		header("Location:" . $LOGIN_PATH);
