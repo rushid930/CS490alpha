@@ -8,10 +8,10 @@
         <label for="Topic" class="QuestionLabel QuestionItems"><strong>Topic </strong></label>
         <select required name="Topic" id="topic" class="QuestionSelect QuestionItems">
             <option value="Lists">Lists</option>
-            <option value="Loops">Loops</option>
-            <option value="Math">Math</option>
-            <option value="Strings">Strings</option>
-            <option value="Recursion">Recursion</option>
+            <option value="ForLoops">For Loops</option>
+            <option value="WhileLoops">While Loops</option>
+            <option value="If">If Statements</option>
+            <option value="Variables">Variables</option>
         </select><br />
 
         <label for="Difficulty" class="QuestionLabel QuestionItems"><strong>Difficulty </strong></label>
