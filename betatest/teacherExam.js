@@ -13,10 +13,10 @@ document.getElementById("split").addEventListener("click", function(e){
 });
 
 
-document.getElementById('examname').addEventListener('keypress', function(e){ dynamicHeader(e); });
+document.getElementById('examName').addEventListener('keypress', function(e){ dynamicHeader(e); });
 
 // for some reason it doesn't work for backspace...
-document.getElementById('examname').addEventListener('keyup', function(e) {
+document.getElementById('examName').addEventListener('keyup', function(e) {
 	if (e.keyCode === 8)
 		dynamicHeaderBackspace(e);
 });
@@ -133,7 +133,6 @@ function offsetSelected(){
 }
 
 function ajaxList(callback){
-
         const SERVER = 'ajaxHandler.php';
         const post_params = "RequestType=GetQuestions";
 
@@ -162,27 +161,23 @@ function listQuestions(questions){
 		let hr = document.createElement("hr");
 		
 		button.setAttribute('type', 'button');
-		button.setAttribute('class', 'QuestionItems QuestionAddButton');
 		button.setAttribute('id', 'addButton' + questions[question]['questID']);
 		button.setAttribute('name', questions[question]['questID']);
 		button.setAttribute('value', "Add Question");
 
-                pointsBox.setAttribute('type', 'text');
-                pointsBox.setAttribute('class', 'QuestionItems QuestionPointsBox');
-                pointsBox.setAttribute('id', 'pointsBox' + questions[question]['questID']);
-                pointsBox.setAttribute('name', questions[question]['questID']);
-                pointsBox.setAttribute('placeholder', "Points");
+        pointsBox.setAttribute('type', 'text');
+        pointsBox.setAttribute('id', 'pointsBox' + questions[question]['questID']);
+        pointsBox.setAttribute('name', questions[question]['questID']);
+    	pointsBox.setAttribute('placeholder', "Points");
 		pointsBox.style.visibility = "hidden";
 
-		li.setAttribute('class', 'QuestionItems QuestionListItems' + ' Topic-' + questions[question]['topic'] + ' Difficulty-' + questions[question]['difficulty']);
 		li.setAttribute('id', 'question' + questions[question]['questID']);
 		li.innerHTML += '<strong>Topic:</strong> ' + questions[question]['topic'] + '<br />';
 		li.innerHTML += '<strong>Difficulty:</strong> ' + questions[question]['difficulty'] + '<br /><br />';
-		li.innerHTML += questions[question]['questiontext'] + '<br /><br />';
-		li.innerHTML += '<strong>Test Cases:</strong><br />' + questions[question]['testcases'].replace(TC_DELIMITER, "<br />") + '<br /><br />';
+		li.innerHTML += questions[question]['questionText'] + '<br /><br />';
+		li.innerHTML += '<strong>Test Cases:</strong><br />' + questions[question]['testCases'].replace(TC_DELIMITER, "<br />") + '<br /><br />';
 
 		hr.setAttribute('id', 'hr' + index);
-		hr.setAttribute('class', "ExamItems ExamHR");
 		
 		divList.appendChild(li);
 		li.appendChild(button);
@@ -266,7 +261,7 @@ function ajaxCreateExam(e){
 
 	const SERVER = 'ajaxHandler.php';
 
-	let examname = document.getElementById("examname").value;
+	let examname = document.getElementById("examName").value;
 
 	let ids = [];
 	let points = [];

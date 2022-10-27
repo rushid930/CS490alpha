@@ -4,7 +4,7 @@ function debug_to_console($data) {
     if (is_array($output))
         $output = implode(',', $output);
 
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+    //echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
 ?>
 <?php
@@ -26,8 +26,8 @@ if(mysqli_connect_errno($database)){
 $request = $_POST['RequestType'];
 $data = $_POST['data'];
 
-debug_to_console($request);
-debug_to_console($data);
+//debug_to_console($request);
+//debug_to_console($data);
 
 if ($request == 'login'){
 	$username = $data['username'];

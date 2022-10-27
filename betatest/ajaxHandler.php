@@ -4,12 +4,12 @@ function debug_to_console($data) {
     if (is_array($output))
         $output = implode(',', $output);
 
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+    //echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
 ?>
 <?php
-	//define('MAGICNUMBER', true);
-	//include 'restrict.php';
+	define('MAGICNUMBER', true);
+	include 'restrict.php';
 
     $URL = 'https://web.njit.edu/~rd448/middleCS490Beta.php'; //andrew
 
@@ -27,37 +27,37 @@ function debug_to_console($data) {
 			break;
 
 		case 'createExam':
-			$name = $_POST['examname'];
+			$name = $_POST['examName'];
 			$ids = $_POST['ids'];
 			$points = $_POST['points'];
-			$post_params = http_build_query(array('RequestType' => $reqtype, 'data' => array('exaName' => $name, 'questionsid' => explode(",",$ids), 'questPoint' => explode(",",$points))));
+			$post_params = http_build_query(array('RequestType' => $reqtype, 'data' => array('examName' => $name, 'questionID' => explode(",",$ids), 'questPoint' => explode(",",$points))));
 			break;
 
 		case 'showExam':
-			$name = $_POST['examname'];
-			$post_params = http_build_query(array('RequestType' => $reqtype, 'data' => array('exaName' => $name)));
+			$name = $_POST['examName'];
+			$post_params = http_build_query(array('RequestType' => $reqtype, 'data' => array('examName' => $name)));
 			break;
 
 		case 'submitExam':
-			$name = $_POST['examname'];
+			$name = $_POST['examName'];
 			$ids = $_POST['ids'];
 			$points = $_POST['points'];
 			$answers = $_POST['answers'];
 			$user = $_SESSION['user'];
-			$post_params = http_build_query(array('RequestType' => $reqtype, 'data' => array('exaName' => $name, 'ucid' => $user, 'questionsid' => explode(",",$ids), 'answers' => explode("HACKMAGICK",$answers), 'points' => explode(",",$points))));
+			$post_params = http_build_query(array('RequestType' => $reqtype, 'data' => array('examName' => $name, 'username' => $user, 'questionID' => explode(",",$ids), 'answers' => explode("HACKMAGICK",$answers), 'points' => explode(",",$points))));
 			break;
 
 		case 'showGradedExam':
-			$name = $_POST['examname'];
+			$name = $_POST['examName'];
 			if ($_SESSION['teacher'])
 				$user = $_POST['user'];
 			else if ($_SESSION['student'])
 				$user = $_SESSION['user'];
-			$post_params = http_build_query(array('RequestType' => $reqtype, 'data' => array('exaName' => $name, 'ucid' => $user)));
+			$post_params = http_build_query(array('RequestType' => $reqtype, 'data' => array('examName' => $name, 'username' => $user)));
 			break;
 		
 		case 'modifyGradedExam':
-			$name = $_POST['examname'];
+			$name = $_POST['examName'];
 			$user = $_POST['user'];
 			$released = $_POST['released'];
 			$ids = $_POST['ids'];
@@ -67,29 +67,27 @@ function debug_to_console($data) {
 			$tcDs = $_POST['tcDs'];
 			$shittytcDs = explode(",",$tcDs);
 			$shittytcDs = str_replace("...", ", ", $shittytcDs);
-			$post_params = http_build_query(array('RequestType' => $reqtype, 'data' => array('exaName' => $name, 'ucid' => $user, 'gradesID' => explode(",",$ids), 'scores' => explode(",",$scores), 'comments' => explode(",",$comments), 'released' => $released, 'deductedPointscorrectName' => explode(",",$nameDs), 'deductedPointsPerEachTest' => $shittytcDs)));
+			$post_params = http_build_query(array('RequestType' => $reqtype, 'data' => array('examName' => $name, 'username' => $user, 'gradesID' => explode(",",$ids), 'scores' => explode(",",$scores), 'comments' => explode(",",$comments), 'released' => $released, 'pointsDeductedCorrectName' => explode(",",$nameDs), 'pointsDeductedPerTest' => $shittytcDs)));
 			break;
 
 		case 'listGradedExamsStudent':
 			$user = $_SESSION['user'];
-			$post_params = http_build_query(array('RequestType' => $reqtype, 'data' => array('ucid' => $user)));
+			$post_params = http_build_query(array('RequestType' => $reqtype, 'data' => array('username' => $user)));
 			break;
 
 		case 'listExams':
 			$user = $_SESSION['user'];
-			$post_params = http_build_query(array('RequestType' => $reqtype, 'data' => array('ucid' => $user)));
+			$post_params = http_build_query(array('RequestType' => $reqtype, 'data' => array('username' => $user)));
 			break;
 
 		default:
-			//GetQuestions
-			//listGradedExams
 			break;
 	}
 
-	debug_to_console($post_params);
-	debug_to_console($URL);
+	//debug_to_console($post_params);
+	//debug_to_console($URL);
 	$resp = handoff($post_params, $URL);
-	debug_to_console($resp);
+	//debug_to_console($resp);
 	echo $resp;
 
 	function handoff($post_params, $URL){

@@ -5,11 +5,11 @@ window.addEventListener("hashchange", hashevent);
 function hashevent(){
 
 	let hash = (location.hash).substr(1);
-	let hashes = { home: 'studentHome',
-		       exam: 'studentExam',
-		       review: 'studentReview',
-		       take: 'studentTake',
-		       view: 'studentView' };
+	let hashes = { home: 'https://afsaccess4.njit.edu/~rd448/studentLanding',
+		       exam: 'https://afsaccess4.njit.edu/~rd448/studentExam',
+		       review: 'https://afsaccess4.njit.edu/~rd448/studentReview',
+		       take: 'https://afsaccess4.njit.edu/~rd448/studentTake',
+		       view: 'https://afsaccess4.njit.edu/~rd448/studentView' };
 
 	if(!hash)
 		hash = 'home';

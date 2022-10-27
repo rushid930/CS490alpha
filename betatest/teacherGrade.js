@@ -57,7 +57,7 @@ function renderExam(ename, questions){
 	const divName = document.getElementById("examName");
 	const released = questions.pop();
 
-	divName.innerHTML = "Currently viewing grades for " + decodeURI(ename) + " taken by " + questions[0]['ucid'];
+	divName.innerHTML = "Currently viewing grades for " + decodeURI(ename) + " taken by " + questions[0]['username'];
 
 	let friendlyctr = 1;
 	for (let question in questions){
@@ -67,10 +67,9 @@ function renderExam(ename, questions){
 		let actual = (questions[question]['resultingAnswers']).split("HACKMAGICK");
 		let deductions = (questions[question]['deductedPointsPerEachTest']).split(",");
 
-                for(let d in deductions)
-                        deductions[d] = deductions[d].trim();
+        for(let d in deductions)
+            deductions[d] = deductions[d].trim();
 
-		li.setAttribute('class', 'GradeItems GradeQuestions');
 		li.setAttribute('id', 'examquestion' + questions[question]['gradesID'] + 'mscore' + questions[question]['maxScores']);
 
 		li.innerHTML += '<strong>Question ' + friendlyctr + '</strong><br /><br />';
@@ -89,7 +88,6 @@ function renderExam(ename, questions){
 			li.innerHTML += " <strong>Deducted Points </strong>";
 			
 			change.setAttribute('type', 'text');
-			change.setAttribute('class', 'GradeItems GradeChange');
 			change.setAttribute('name', 'tcD' + tc);
 			change.setAttribute('id', 'tcD' + tc + 'q' + questions[question]['gradesID']);
 			change.setAttribute('placeholder', 'points');
@@ -106,7 +104,6 @@ function renderExam(ename, questions){
 		let change = document.createElement("input");
 		change.setAttribute('type', 'text');
 		change.setAttribute('name', 'NameD');
-		change.setAttribute('class', 'GradeItems GradeChange');
 		change.setAttribute('id', 'NameD' + questions[question]['gradesID']);
 		change.setAttribute('placeholder', 'Score');
 		change.setAttribute('value', questions[question]['deductedPointscorrectName']);
@@ -117,7 +114,6 @@ function renderExam(ename, questions){
 		comment.setAttribute('cols', '100');
 		comment.setAttribute('rows', '6');
 		comment.setAttribute('name', 'Comment');
-		comment.setAttribute('class', 'GradeItems GradeComment');
 		comment.setAttribute('id', 'comment');
 		comment.setAttribute('placeholder', 'Leave a comment for the student');
 		comment.innerHTML = questions[question]['comments'];
@@ -134,7 +130,6 @@ function renderExam(ename, questions){
 	let button = document.createElement("input");
 	
 	button.setAttribute('type', 'button');
-	button.setAttribute('class', 'GradeItems GradeReleaseButton');
 	button.setAttribute('name', 'ExamReleaseButton');
 	
 	if (released == 'Y'){
