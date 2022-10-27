@@ -2,7 +2,7 @@
 	define('MAGICNUMBER', true);
 	include 'unlock.php';
 
-	$URL = 'https://afsaccess4.njit.edu/~rd448/middleCS490Beta.php';
+	$URL = 'https://afsaccess4.njit.edu/~ac235/middleEnd.php'; //andrew
 
 	$req = login($_POST['username'], $_POST['password'], $URL);
 

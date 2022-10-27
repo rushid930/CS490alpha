@@ -9,7 +9,7 @@ function debug_to_console($data) {
 ?>
 <?php
 
-$backurl = 'https://afsaccess4.njit.edu/~rd448/backEndCS490Betha.php';
+$backurl = 'https://afsaccess4.njit.edu/~ss4366/backEnd.php'; //sumit
 
 $requestID = $_POST['RequestType'];
 $data = $_POST['data'];
