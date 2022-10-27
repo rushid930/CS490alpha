@@ -11,7 +11,7 @@ function debug_to_console($data) {
 	define('MAGICNUMBER', true);
 	include 'restrict.php';
 
-    $URL = 'https://web.njit.edu/~rd448/middleCS490Beta.php'; //andrew
+    $URL = 'https://afsaccess4.njit.edu/~ac235/middleEnd.php'; //andrew
 
 	$reqtype = $_POST['RequestType'];
 
