@@ -2,12 +2,12 @@
 	define('MAGICNUMBER', true);
 	include 'restrict.php';
 ?>
-<div id="TakeExam" class="TakeItems TakeMain">
-	<h2 id="examName" class="TakeHeader"></h2>
-	<div id="TakeDiv" class="TakeDiv TakeItems">
+<div id="TakeExam">
+	<h2 id="examName"></h2>
+	<div id="TakeDiv">
 	</div>
-	<form id="TakeForm" class="TakeItems TakeForm">
-		<input type="submit" value="Submit Exam" class="TakeSubmit TakeItems"/>
+	<form id="TakeForm">
+		<input type="submit" value="Submit Exam"/>
 	</form>
-	<h3 id="response" class="ExamSubmitResponse"></h3>
+	<h3 id="response"></h3>
 </div>

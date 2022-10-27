@@ -2,16 +2,16 @@
 	define('MAGICNUMBER', true);
 	include 'restrict.php';
 ?>
-<div id="ExamMain" class="ExamItems ExamMain">
-	<form id="SubmitExamForm" class="ExamItems ExamForm">
-		<label for="Exam Name" class="ExamLabel ExamItems"><strong>Exam Name </strong></label>
-		<input type="text" name="Exam Name" placeholder="Exam Name" id="examname" class="ExamItems ExamInput"/>
-		<input type="submit" value="Create Exam" class="ExamSubmit ExamItems"/>
+<div id="ExamMain">
+	<form id="SubmitExamForm">
+		<label for="Exam Name"><strong>Exam Name </strong></label>
+		<input type="text" name="Exam Name" placeholder="Exam Name" id="examName"/>
+		<input type="submit" value="Create Exam"/>
 	</form>
-	<h3 id="response" class="ExamCreateResponse"></h3>
-	<h2 id="examheader" class="ExamHeader"></h2>
-	<label for="Filters" class="ExamLabel ExamItems"><strong>Question Filters </strong></label>
-	<select name="FilterTopic" id="ftopic" class="ExamItems ExamFilter">
+	<h3 id="response"></h3>
+	<h2 id="examheader"></h2>
+	<label for="Filters"><strong>Question Filters </strong></label>
+	<select name="FilterTopic" id="ftopic">
 		<option value="All">All</option>
         <option value="Lists">Lists</option>
         <option value="ForLoops">For Loops</option>
@@ -19,16 +19,16 @@
         <option value="If">If Statements</option>
         <option value="Variables">Variables</option>
 	</select>
-	<select name="FilterDifficulty" id="fdifficulty" class="ExamItems ExamFilter">
+	<select name="FilterDifficulty" id="fdifficulty">
 		<option value="All">All</option>
 		<option value="Easy">Easy</option>
 		<option value="Medium">Medium</option>
 		<option value="Hard">Hard</option>
 	</select>
-	<div id="split" class="ExamSplit">
-		<div id="QuestionList" class="ExamItems ExamQuestions">
+	<div id="split">
+		<div id="QuestionList">
 		</div>
-		<div id="SelectedQuestions" class="ExamItems ExamSelections">
+		<div id="SelectedQuestions">
 			<p> Selected Questions .. </p>
 		</div>
 	</div>

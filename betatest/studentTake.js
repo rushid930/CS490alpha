@@ -71,14 +71,12 @@ function renderExam(ename, questions){
 		let li = document.createElement("div");
 		let answer = document.createElement("textarea");
 
-		li.setAttribute('class', 'TakeItems TakeQuestions');
 		li.setAttribute('id', 'examquestion');
 		li.innerHTML += '<strong>Question ' + friendlyctr + '</strong><br />';
 		li.innerHTML += '<strong>' + questions[question]['points'] + ' Points</strong><br /><br />';
 		li.innerHTML += questions[question]['questiontext'];
 
 		answer.setAttribute('id', 'answerText' + questions[question]['questionID']);
-		answer.setAttribute('class', 'TakeItems TakeAnswer');
 		answer.setAttribute('cols', '100');
 		answer.setAttribute('rows', '8');
 		answer.setAttribute('wrap', 'soft');

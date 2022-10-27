@@ -29,12 +29,10 @@ function listExams(exams){
 		let li = document.createElement("li");
 		let a = document.createElement("a");
 
-		a.setAttribute('class', 'ExamLinks');
 		a.setAttribute('href', '#take?exam=' + exams[exam]);
 		a.innerHTML = exams[exam];
 		
-		li.setAttribute('class', 'ExamItems ExamNames');
-		li.setAttribute('id', 'examname');
+		li.setAttribute('id', 'examName');
 		li.appendChild(a);
                 li.innerHTML += '<br />';
 		

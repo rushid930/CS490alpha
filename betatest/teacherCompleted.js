@@ -30,12 +30,10 @@ function listExams(exams){
 		let li = document.createElement("li");
 		let a = document.createElement("a");
 
-		a.setAttribute('class', 'ExamLinks');
-		a.setAttribute('href', '#grade?exam=' + exams[exam]['exaName'] + '?user=' + exams[exam]['ucid']);
-		a.innerHTML = exams[exam]['exaName'] + ' (STUDENT: <strong>' + exams[exam]['ucid'] + '</strong>)';
+		a.setAttribute('href', '#grade?exam=' + exams[exam]['examName'] + '?user=' + exams[exam]['username']);
+		a.innerHTML = exams[exam]['examName'] + ' (STUDENT: <strong>' + exams[exam]['username'] + '</strong>)';
 		
-		li.setAttribute('class', 'ExamItems ExamNames');
-		li.setAttribute('id', 'examname');
+		li.setAttribute('id', 'examName');
 		li.appendChild(a);
 		li.innerHTML += '<br />';
 		

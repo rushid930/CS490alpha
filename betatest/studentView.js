@@ -40,7 +40,6 @@ function renderExam(ename, questions){
 		let li = document.createElement("div");
 		let deductions = (questions[question]['deductedPointsPerEachTest']).split(",");
 
-		li.setAttribute('class', 'ViewItems ViewQuestions');
 		li.setAttribute('id', 'examquestion');
 		li.innerHTML += '<strong>Question ' + friendlyctr + '</strong><br />';
 		li.innerHTML += '<strong>Score: ' + questions[question]['scores'] + ' out of ' + questions[question]['maxScores'] + ' Points</strong><br /><br />';

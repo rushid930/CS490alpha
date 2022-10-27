@@ -29,14 +29,12 @@ function listExams(exams){
 		let li = document.createElement("li");
 		let a = document.createElement("a");
 
-		a.setAttribute('class', 'ReviewLinks');
-                a.setAttribute('href', '#view?exam=' + exams[exam]);
-                a.innerHTML = exams[exam];
+        a.setAttribute('href', '#view?exam=' + exams[exam]);
+        a.innerHTML = exams[exam];
 
-		li.setAttribute('class', 'ReviewItems ReviewNames');
 		li.setAttribute('id', 'examname');
 		li.appendChild(a);
-                li.innerHTML += '<br />';
+        li.innerHTML += '<br />';
 		
 		divList.appendChild(li);
 	}

@@ -3,13 +3,13 @@
 	define('MAGICNUMBER', true);
 	include 'restrict.php';
 ?>
-<div id="GradeExam" class="GradeItems GradeMain">
-	<h2 id="examName" class="GradeHeader"></h2>
-	<div id="GradeDiv" class="GradeDiv GradeItems">
+<div id="GradeExam">
+	<h2 id="examName"></h2>
+	<div id="GradeDiv">
 	</div>
-	<form id="GradeForm" class="GradeItems GradeForm">
+	<form id="GradeForm">
 		<br />
-		<input type="submit" value="UPDATE EXAM" class="GradeSubmit GradeItems"/>
+		<input type="submit" value="UPDATE EXAM"/>
 	</form>
-	<h3 id="response" class="UpdateGradesResponse"></h3>
+	<h3 id="response"></h3>
 </div>
