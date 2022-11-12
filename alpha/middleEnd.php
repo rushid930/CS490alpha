@@ -4,9 +4,13 @@ function debug_to_console($data) {
     if (is_array($output))
         $output = implode(',', $output);
 
+<<<<<<< HEAD:middleEnd.php
+
+=======
     //echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
 ?>
+>>>>>>> origin/main:alpha/middleEnd.php
 <?php
 	session_start();
 
@@ -27,8 +31,13 @@ function debug_to_console($data) {
 		//debug_to_console($_SESSION['auth']);
 		//debug_to_console($_SESSION['user-type']);
 
+<<<<<<< HEAD:middleEnd.php
+		header('Location: https://web.njit.edu/~ss4366/authCode.php');
+o	}
+=======
 		header('Location: https://afsaccess4.njit.edu/~rd448/authCode.php');
 	}
+>>>>>>> origin/main:alpha/middleEnd.php
 	else if(isset($_SESSION['auth'])){
 		debug_to_console($_SESSION['user-type']);
 		$user_type = $_SESSION['user-type'];
